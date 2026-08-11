@@ -5,7 +5,7 @@ library(ggh4x)
 
 #IMPORT DATA
 data <- read_excel(
-  "C:/Users/ACER/Desktop/MSc USM/Results/3. Raw_data_for_R/mbic_biofilm_camhb_raw_data_ver2.xlsx"
+  "copy_your_file_path.xlsx"
 )
 names(data)
 
@@ -83,7 +83,7 @@ p <- ggplot(
     )
   ) +
   labs(
-    title = "Minimum Biofilm Inhibitory Concentration (Mean ± SD)",
+    title = "Minimum Concentration (Mean ± SD)",
     x = "Concentration (% w/v)",
     y = "OD595",
     fill = "Treatment"
@@ -130,7 +130,7 @@ ggh4x::facet_wrap2(
 
 #SAVE GRAPH
 ggsave(
-  "MIC_BarChart.png",
+  "BarChart.png",
   plot = p,
   width = 14,
   height = 8,
@@ -142,5 +142,5 @@ library(writexl)
 
 write_xlsx(
   summary_data,
-  "C:/Users/ACER/Desktop/MSc USM/Results/3. Raw_data_for_R/MBIC_Summary_Table.xlsx"
+  "file_name"
 )
