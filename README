@@ -3,7 +3,6 @@ Mean ± SD Bar Graph for Biofilm Assay Data
 Hi! 👋
 
 This repository contains a simple R script for turning replicate biofilm assay measurements into a Mean ± Standard Deviation (SD) bar graph.
-
 The script was developed as a reusable example for summarising and visualising OD595 measurements from a microplate biofilm assay.
 
 IMPORTANT:
@@ -11,7 +10,6 @@ The example data and sample names used in this repository are fictional and are 
 
 
 WHAT DOES THE SCRIPT DO?
-
 The script:
 
 1. Imports data from an Excel file.
@@ -28,7 +26,6 @@ The script:
 
 
 EXAMPLE EXPERIMENT
-
 The example in this repository uses fictional data representing an experiment involving:
 
 Organism:
@@ -60,9 +57,7 @@ OD595
 
 
 REQUIRED DATA FORMAT
-
 The input Excel file should contain the following columns:
-
 Strain
 Treatment
 Concentration
@@ -70,9 +65,7 @@ Replicate
 OD595
 
 Each row represents one replicate measurement.
-
 Example:
-
 Strain: EC01
 Treatment: Manuka
 Concentration: 3.125
@@ -86,12 +79,6 @@ Replicate: 2
 OD595: 0.57
 
 Strain: EC01
-Treatment: Manuka
-Concentration: 3.125
-Replicate: 3
-OD595: 0.55
-
-Strain: EC01
 Treatment: Kelulut
 Concentration: 3.125
 Replicate: 1
@@ -103,22 +90,12 @@ Concentration: 3.125
 Replicate: 2
 OD595: 0.46
 
-Strain: EC01
-Treatment: Kelulut
-Concentration: 3.125
-Replicate: 3
-OD595: 0.49
-
-
 REQUIREMENTS
-
 You will need:
-
 - R
 - RStudio
 
 The script uses the following R packages:
-
 readxl
 dplyr
 ggplot2
@@ -126,14 +103,10 @@ ggh4x
 writexl
 
 If you do not already have these packages, install them using:
-
 install.packages(c("readxl", "dplyr", "ggplot2", "ggh4x", "writexl"))
 
-
 HOW TO USE THE SCRIPT
-
 STEP 1: Prepare your Excel file.
-
 Organise your data using the required column names:
 
 Strain
@@ -144,50 +117,36 @@ OD595
 
 
 STEP 2: Open the R script.
-
 Open the R script in RStudio.
 
-
 STEP 3: Change the input file.
-
 Find the section where the Excel file is imported.
-
 Replace the example file name with the location of your own Excel file.
-
 For example:
 
 data <- read_excel("your_data_file.xlsx")
 
 
 STEP 4: Check your column names.
-
 Run:
 
 names(data)
 
 This allows you to check whether R is reading your column names correctly.
 
-
 STEP 5: Run the script.
-
 Run the code in RStudio.
-
 The script will calculate the Mean OD595 and SD OD595 for each combination of:
-
 Strain × Treatment × Concentration
 
 
 UNDERSTANDING THE GRAPH
 
 BAR HEIGHT
-
 The height of each bar represents the mean OD595 of the replicate measurements.
 
-
 ERROR BARS
-
 The error bars represent standard deviation (SD).
-
 The error bars are calculated as:
 
 Mean - SD
@@ -198,21 +157,16 @@ Mean + SD
 
 
 COLOURS
-
 Different colours represent different treatment groups.
 
 In the example:
-
 Manuka = orange
 Kelulut = purple
 
 
 PANELS
-
 Each bacterial strain is displayed in its own panel.
-
 The y-axis is allowed to vary between panels using a free y-axis scale.
-
 This can make patterns easier to see when different strains have substantially different OD595 values.
 
 
@@ -221,15 +175,11 @@ HOW ARE THE MEAN AND SD CALCULATED?
 For each Strain × Treatment × Concentration combination, the script calculates:
 
 Mean OD595
-
 and
-
 Standard Deviation (SD)
 
 Missing values are ignored during the calculation.
-
 The resulting summary data contain:
-
 Strain
 Treatment
 Concentration
@@ -238,21 +188,17 @@ SD_OD595
 
 
 OUTPUT FILES
-
 After running the script, two files are produced.
-
 
 1. MBIC_BarChart.png
 
 This is the final bar graph.
-
 The graph is saved as a high-resolution PNG image at 600 dpi.
 
 
 2. MBIC_Summary_Table.xlsx
 
 This Excel file contains the calculated summary values, including:
-
 Strain
 Treatment
 Concentration
@@ -276,52 +222,11 @@ For example, your data may have:
 - Different numbers of replicates
 - Additional control groups
 - More or fewer strains
-- Different OD measurements
 
 If the structure of your data is different, you may need to modify the filtering, grouping, or plotting sections of the code.
 
-
-COMMON PROBLEMS
-
-
-PROBLEM: "object not found"
-
-Check your column names using:
-
-names(data)
-
-R is case-sensitive.
-
-For example:
-
-OD595
-
-and
-
-od595
-
-are treated as two different column names.
-
-
-PROBLEM: "Column doesn't exist"
-
-Make sure the column name used in the R code exactly matches the column name in your Excel file.
-
-For example, if your Excel file uses:
-
-Bacteria
-
-instead of:
-
-Strain
-
-the R code needs to be adjusted accordingly.
-
-
 PROBLEM: The graph does not look right.
-
 Check the values in your Treatment and Concentration columns.
-
 You can use:
 
 unique(data$Treatment)
@@ -331,7 +236,6 @@ and:
 unique(data$Concentration)
 
 This can help identify spelling differences or unexpected values.
-
 For example:
 
 Manuka
@@ -342,11 +246,8 @@ would be treated as three different treatment groups by R.
 
 
 IMPORTANT NOTE
-
 This script is mainly intended as a data visualisation and summary template.
-
 Mean ± SD describes the observed variation between replicate measurements. It does not by itself constitute a statistical significance test.
-
 Make sure that the statistical analysis used for your research question is appropriate for your experimental design.
 
 ⚠️ If your data look different
